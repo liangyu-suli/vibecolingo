@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #071224;
+  --bg-soft: #0f1c32;
+  --card: #132744;
+  --card-strong: #1a3154;
+  --text: #eaf3ff;
+  --muted: #a8bddc;
+  --accent: #36d399;
+  --accent-2: #54b7ff;
+  --danger: #ff6f8f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "IBM Plex Sans", "Noto Sans SC", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1000px circle at 0% 0%, #163058 0%, transparent 55%),
+    radial-gradient(800px circle at 100% 0%, #11395f 0%, transparent 40%),
+    linear-gradient(160deg, var(--bg), #07101f 45%, #081427 100%);
+  min-height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.glass-card {
+  background: linear-gradient(145deg, rgba(26, 49, 84, 0.8), rgba(19, 39, 68, 0.85));
+  border: 1px solid rgba(141, 179, 227, 0.24);
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.section-title {
+  font-size: clamp(1.4rem, 5vw, 2.2rem);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.section-subtitle {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
+  line-height: 1.55;
+}
+
+.option-btn {
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(141, 179, 227, 0.25);
+  background: rgba(16, 30, 54, 0.8);
+  border-radius: 0.8rem;
+  padding: 0.8rem 0.9rem;
+  min-height: 44px;
+  transition: transform 120ms ease, border-color 120ms ease, background-color 120ms ease;
+}
+
+.option-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(84, 183, 255, 0.75);
+}
+
+.word-chip {
+  border: 1px solid rgba(141, 179, 227, 0.35);
+  background: rgba(17, 34, 60, 0.9);
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  min-height: 44px;
+  font-size: 0.9rem;
+}
