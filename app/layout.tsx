@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "VibeCodingo Investor Demo",
-  description: "Interactive investor demo for VibeCodingo"
+  title: "vibecolingo Investor Demo",
+  description: "Interactive investor demo for vibecolingo"
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

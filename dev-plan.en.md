@@ -1,4 +1,4 @@
-# VibeCodingo Investor Demo Web Plan (English)
+# vibecolingo Investor Demo Web Plan (English)
 
 ## Is an English Product Doc Better for Implementation?
 Short answer: helpful, but not required.

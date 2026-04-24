@@ -19,7 +19,7 @@ export default function HomePage() {
               <div className="h-10 w-10 rounded-xl bg-duo-green border-b-4 border-duo-green-dark shadow-sm flex items-center justify-center text-white text-xl font-black">
                 V
               </div>
-              <span className="text-xl font-black tracking-tighter text-[#58cc02] uppercase group-hover:scale-105 transition-transform">VibeCodingo</span>
+              <span className="text-xl font-black tracking-tighter text-[#58cc02] uppercase group-hover:scale-105 transition-transform">vibecolingo</span>
             </div>
             <div className="hidden md:flex items-center gap-8">
               {navItems.map((item) => (
@@ -80,11 +80,7 @@ export default function HomePage() {
         {/* Interactive Modules Section */}
         <section className="mb-32">
           <div className="mb-16 text-center">
-            <h2 className="section-title mb-4">Choose your skill</h2>
-            <p className="section-subtitle mx-auto max-w-2xl">
-              From visual design to deep debugging. 
-              <span className="block mt-2 font-bold text-duo-blue">Interactive modules built for the AI era.</span>
-            </p>
+            <h2 className="section-title mb-4">四种题目类型</h2>
           </div>
           <InteractiveModules />
         </section>
@@ -151,7 +147,7 @@ export default function HomePage() {
         <footer className="border-t-2 border-[#e5e5e5] py-16 text-center">
           <h2 className="text-3xl font-black mb-4 text-[#3c3c3c]">Not English classes. Prompt fluency.</h2>
           <p className="text-[#777] font-bold max-w-lg mx-auto mb-10 leading-relaxed">
-            VibeCodingo is the "professional dialect" layer between human vision and AI execution. We're building the infrastructure for the next generation of AI-native developers.
+            vibecolingo is the "professional dialect" layer between human vision and AI execution. We're building the infrastructure for the next generation of AI-native developers.
           </p>
           <div className="flex justify-center gap-8 mb-8">
             <span className="text-2xl cursor-pointer hover:scale-110 transition-transform">🦉</span>
