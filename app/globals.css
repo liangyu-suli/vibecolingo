@@ -1,15 +1,23 @@
 @import "tailwindcss";
 
+@theme {
+  --color-duo-green: #58cc02;
+  --color-duo-green-dark: #46a302;
+  --color-duo-blue: #1cb0f6;
+  --color-duo-blue-dark: #1899d6;
+  --color-duo-red: #ff4b4b;
+  --color-duo-red-dark: #d33131;
+  --color-duo-yellow: #ffc800;
+  --color-duo-yellow-dark: #e5a400;
+  --color-duo-orange: #ff9600;
+  --color-border-light: #e5e5e5;
+}
+
 :root {
-  --bg: #071224;
-  --bg-soft: #0f1c32;
-  --card: #132744;
-  --card-strong: #1a3154;
-  --text: #eaf3ff;
-  --muted: #a8bddc;
-  --accent: #36d399;
-  --accent-2: #54b7ff;
-  --danger: #ff6f8f;
+  --bg: #ffffff;
+  --bg-soft: #f7f7f7;
+  --text: #4b4b4b;
+  --text-muted: #afafaf;
 }
 
 * {
@@ -20,68 +28,66 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: "IBM Plex Sans", "Noto Sans SC", "Segoe UI", sans-serif;
+  font-family: "Inter", "Noto Sans SC", sans-serif;
   color: var(--text);
-  background:
-    radial-gradient(1000px circle at 0% 0%, #163058 0%, transparent 55%),
-    radial-gradient(800px circle at 100% 0%, #11395f 0%, transparent 40%),
-    linear-gradient(160deg, var(--bg), #07101f 45%, #081427 100%);
-  min-height: 100%;
+  background: var(--bg);
+  min-height: 100vh;
+  scroll-behavior: smooth;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.page-shell {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-.glass-card {
-  background: linear-gradient(145deg, rgba(26, 49, 84, 0.8), rgba(19, 39, 68, 0.85));
-  border: 1px solid rgba(141, 179, 227, 0.24);
-  border-radius: 1rem;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+.card-white {
+  background: white;
+  border: 2px solid #e5e5e5;
+  border-radius: 1.5rem;
 }
 
 .section-title {
-  font-size: clamp(1.4rem, 5vw, 2.2rem);
-  line-height: 1.2;
-  margin: 0;
+  @apply text-3xl font-black tracking-tight md:text-4xl text-[#3c3c3c];
 }
 
 .section-subtitle {
-  margin-top: 0.5rem;
-  color: var(--muted);
-  font-size: clamp(0.95rem, 3vw, 1.1rem);
-  line-height: 1.55;
+  @apply mt-2 text-[#777] text-base md:text-lg font-medium leading-relaxed;
 }
 
-.option-btn {
-  width: 100%;
-  text-align: left;
-  border: 1px solid rgba(141, 179, 227, 0.25);
-  background: rgba(16, 30, 54, 0.8);
-  border-radius: 0.8rem;
-  padding: 0.8rem 0.9rem;
-  min-height: 44px;
-  transition: transform 120ms ease, border-color 120ms ease, background-color 120ms ease;
+/* 3D Button Style */
+.btn-primary-3d {
+  @apply relative inline-flex items-center justify-center px-6 py-3 rounded-2xl 
+         font-bold transition-all duration-100 bg-duo-green text-white 
+         border-b-4 border-duo-green-dark hover:brightness-110 active:translate-y-[2px] active:border-b-0;
 }
 
-.option-btn:hover {
-  transform: translateY(-1px);
-  border-color: rgba(84, 183, 255, 0.75);
+.btn-secondary-3d {
+  @apply relative inline-flex items-center justify-center px-6 py-3 rounded-2xl 
+         font-bold transition-all duration-100 bg-duo-blue text-white 
+         border-b-4 border-duo-blue-dark hover:brightness-110 active:translate-y-[2px] active:border-b-0;
 }
 
-.word-chip {
-  border: 1px solid rgba(141, 179, 227, 0.35);
-  background: rgba(17, 34, 60, 0.9);
-  border-radius: 999px;
-  padding: 0.45rem 0.8rem;
-  min-height: 44px;
-  font-size: 0.9rem;
+.btn-ghost-3d {
+  @apply relative inline-flex items-center justify-center px-6 py-3 rounded-2xl 
+         font-bold transition-all duration-100 bg-white text-[#afafaf] 
+         border-2 border-b-4 border-border-light hover:bg-slate-50 active:translate-y-[2px] active:border-b-2;
+}
+
+.option-btn-3d {
+  @apply w-full text-left p-4 rounded-2xl border-2 border-b-4 border-border-light bg-white 
+         transition-all duration-100 hover:bg-slate-50 active:translate-y-[2px] active:border-b-2
+         flex items-center gap-4;
+}
+
+.word-chip-3d {
+  @apply px-4 py-2 rounded-xl border-2 border-b-4 border-border-light bg-white 
+         text-[#4b4b4b] font-bold transition-all hover:bg-slate-50 
+         active:translate-y-[2px] active:border-b-2 cursor-pointer select-none min-h-[48px] flex items-center justify-center;
+}
+
+.badge-card {
+  @apply p-4 rounded-2xl border-2 border-b-4 border-border-light flex flex-col items-center text-center gap-2 transition-transform hover:scale-105;
+}
+
+.text-en {
+  @apply font-bold text-[#3c3c3c];
+}
+
+.text-zh {
+  @apply font-medium text-[#777];
 }
