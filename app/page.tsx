@@ -41,8 +41,8 @@ export default function HomePage() {
               <span className="text-xs font-black text-[#58cc02] uppercase tracking-widest text-center">Investor Demo · Product Vision 2026</span>
             </div>
             
-            <h1 className="text-5xl font-black leading-[1] tracking-tight md:text-7xl mb-8 text-[#3c3c3c]">
-              Bridging the <br /> <span className="text-duo-blue">Prompting Gap.</span>
+            <h1 className="text-4xl font-black leading-[1.1] tracking-tight md:text-6xl lg:text-7xl mb-8 text-[#3c3c3c] whitespace-nowrap">
+              Bridging the <span className="text-duo-blue">Prompting Gap.</span>
             </h1>
             
             <div className="space-y-8 text-left max-w-2xl mx-auto md:mx-0">
