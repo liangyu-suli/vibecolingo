@@ -41,13 +41,14 @@ export default function HomePage() {
               <span className="text-xs font-black text-[#58cc02] uppercase tracking-widest text-center">Investor Demo · Product Vision 2026</span>
             </div>
             
-            <h1 className="text-4xl font-black leading-[1.1] tracking-tight md:text-6xl lg:text-7xl mb-8 text-[#3c3c3c] whitespace-nowrap">
-              Bridging the <span className="text-duo-blue">Prompting Gap.</span>
+            <h1 className="text-4xl font-black leading-[1.1] tracking-tight md:text-6xl lg:text-7xl mb-8 text-[#3c3c3c]">
+              <span className="text-duo-blue block mb-2">VibeCoLingo</span>
+              Bridging the Prompting Gap.
             </h1>
             
             <div className="space-y-8 text-left max-w-2xl mx-auto md:mx-0">
               <p className="text-lg text-[#4b4b4b] font-bold leading-relaxed">
-                vibecolingo 是一款通过微学习，帮助非英语母语者掌握“技术指令英语”，从而更精准地与 AI 编程助手沟通的交互式学习 App。
+                vibecolingo 是一款帮助非英语母语者掌握“技术指令英语”，从而更精准地与 AI 编程助手沟通的交互式学习 App。
               </p>
 
               <div>
