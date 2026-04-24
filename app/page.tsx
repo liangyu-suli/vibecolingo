@@ -17,7 +17,7 @@ export default function HomePage() {
           <nav className="flex items-center justify-between px-2 py-4 md:px-4">
             <div className="flex items-center gap-3 group cursor-pointer">
               <div className="h-10 w-10 rounded-xl bg-duo-green border-b-4 border-duo-green-dark shadow-sm flex items-center justify-center text-white text-xl font-black">
-                V
+                
               </div>
               <span className="text-xl font-black tracking-tighter text-[#58cc02] uppercase group-hover:scale-105 transition-transform">vibecolingo</span>
             </div>
@@ -51,7 +51,7 @@ export default function HomePage() {
               </p>
 
               <div>
-                <h3 className="text-xs font-black uppercase tracking-widest text-duo-red mb-4">核心用户痛点</h3>
+                <h3 className="text-xs font-black uppercase tracking-widest text-duo-blue mb-4">核心用户痛点</h3>
                 <ul className="space-y-3">
                   {[
                     { t: "词不达意", d: "只会用 make it pretty, fix bug 等笼统词汇，AI 给的代码质量全靠运气。" },
@@ -59,7 +59,7 @@ export default function HomePage() {
                     { t: "句式混乱", d: "无法将零散想法组织成逻辑清晰、有主语谓语的技术指令。" }
                   ].map(item => (
                     <li key={item.t} className="flex gap-3 items-start">
-                      <span className="h-5 w-5 shrink-0 rounded-full bg-duo-red/10 flex items-center justify-center text-[10px]">❌</span>
+                      <div className="h-2 w-2 mt-2 shrink-0 rounded-full bg-[#afafaf]" />
                       <p className="text-sm font-bold text-[#777]"><span className="text-[#3c3c3c]">{item.t}：</span>{item.d}</p>
                     </li>
                   ))}
