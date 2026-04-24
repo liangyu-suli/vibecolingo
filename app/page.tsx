@@ -28,28 +28,39 @@ export default function HomePage() {
                 </a>
               ))}
             </div>
-            <button className="btn-primary-3d px-6 py-2 text-sm">TRY FREE</button>
+            <div className="rounded-full bg-[#f7f7f7] border-2 border-[#e5e5e5] px-4 py-1">
+              <span className="text-[10px] font-black text-[#afafaf] uppercase tracking-widest">Pitch Deck Preview</span>
+            </div>
           </nav>
         </header>
 
         {/* Hero Section */}
         <section className="mb-24 flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 text-center md:text-left">
-            <div className="inline-block px-4 py-1 rounded-full bg-[#f2ffeb] border-2 border-[#58cc02] mb-6 animate-bounce">
-              <span className="text-xs font-black text-[#58cc02] uppercase tracking-widest">Master AI technical English</span>
+            <div className="inline-block px-4 py-1 rounded-full bg-[#f2ffeb] border-2 border-[#58cc02] mb-6">
+              <span className="text-xs font-black text-[#58cc02] uppercase tracking-widest text-center">Investor Demo · Product Vision 2026</span>
             </div>
             
             <h1 className="text-5xl font-black leading-[1] tracking-tight md:text-7xl mb-8 text-[#3c3c3c]">
-              The fun way to <br /> <span className="text-duo-blue">talk to AI.</span>
+              Bridging the <br /> <span className="text-duo-blue">Prompting Gap.</span>
             </h1>
             
             <p className="text-xl text-[#777] md:max-w-xl mb-10 font-bold leading-relaxed">
-              Stop guessing. Start directing. VibeCodingo turns vague prompts into <span className="text-[#3c3c3c] underline decoration-duo-yellow decoration-4 underline-offset-4">technical precision</span>.
+              Helping 30M+ non-native developers master <span className="text-[#3c3c3c] underline decoration-duo-yellow decoration-4 underline-offset-4">Technical Prompt English</span> to direct AI with 100% precision.
             </p>
 
-            <div className="flex flex-col md:flex-row gap-4">
-              <button className="btn-secondary-3d px-10 py-5 text-xl">GET STARTED</button>
-              <button className="btn-ghost-3d px-10 py-5 text-xl">I ALREADY HAVE AN ACCOUNT</button>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {[
+                { label: "Precision Gap", val: "Converting 'vague vibes' into executable code instructions." },
+                { label: "Market Fit", val: "Targeting the rapidly growing AI-native developer population." },
+                { label: "Context First", val: "Visual-driven learning vs. traditional grammar rote-memorization." },
+                { label: "Efficiency", val: "Reducing AI hallucination by 40% through high-quality input." }
+              ].map(point => (
+                <div key={point.label} className="p-4 rounded-2xl bg-[#f7f7f7] border-2 border-transparent hover:border-[#e5e5e5] transition-all">
+                  <p className="text-[10px] font-black uppercase text-duo-blue mb-1">{point.label}</p>
+                  <p className="text-xs font-bold text-[#4b4b4b] leading-tight">{point.val}</p>
+                </div>
+              ))}
             </div>
           </div>
           
@@ -58,10 +69,10 @@ export default function HomePage() {
               🦉
             </div>
             <div className="absolute top-0 right-0 h-20 w-20 rounded-2xl bg-duo-yellow border-b-4 border-duo-yellow-dark flex items-center justify-center text-3xl shadow-lg rotate-12">
-              ✨
+              💰
             </div>
             <div className="absolute bottom-0 left-0 h-16 w-16 rounded-2xl bg-duo-green border-b-4 border-duo-green-dark flex items-center justify-center text-2xl shadow-lg -rotate-12">
-              🚀
+              📈
             </div>
           </div>
         </section>
@@ -129,21 +140,26 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <button className="btn-primary-3d w-full md:w-auto px-12 py-5 text-xl">START LEARNING</button>
+              <div className="mt-12 p-6 rounded-3xl bg-[#f2ffeb] border-2 border-[#58cc02] border-dashed">
+                <p className="text-[#58cc02] font-black text-center text-sm uppercase tracking-widest">Scalable Content Architecture · Ready for Global Expansion</p>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Footer */}
         <footer className="border-t-2 border-[#e5e5e5] py-16 text-center">
-          <p className="text-sm font-black text-[#afafaf] uppercase tracking-[0.2em] mb-4">Inspired by the world's best way to learn</p>
+          <h2 className="text-3xl font-black mb-4 text-[#3c3c3c]">Not English classes. Prompt fluency.</h2>
+          <p className="text-[#777] font-bold max-w-lg mx-auto mb-10 leading-relaxed">
+            VibeCodingo is the "professional dialect" layer between human vision and AI execution. We're building the infrastructure for the next generation of AI-native developers.
+          </p>
           <div className="flex justify-center gap-8 mb-8">
             <span className="text-2xl cursor-pointer hover:scale-110 transition-transform">🦉</span>
-            <span className="text-2xl cursor-pointer hover:scale-110 transition-transform">🐥</span>
-            <span className="text-2xl cursor-pointer hover:scale-110 transition-transform">🦊</span>
-            <span className="text-2xl cursor-pointer hover:scale-110 transition-transform">🦆</span>
+            <span className="text-2xl cursor-pointer hover:scale-110 transition-transform">💰</span>
+            <span className="text-2xl cursor-pointer hover:scale-110 transition-transform">📈</span>
+            <span className="text-2xl cursor-pointer hover:scale-110 transition-transform">🚀</span>
           </div>
-          <p className="text-xs font-bold text-[#afafaf]">© 2026 VibeCodingo. Master the prompt, master the future.</p>
+          <p className="text-xs font-black text-[#afafaf] uppercase tracking-[0.2em]">Contact: investor-relations@vibecolingo.io</p>
         </footer>
       </div>
     </div>
