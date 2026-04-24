@@ -45,22 +45,33 @@ export default function HomePage() {
               Bridging the <br /> <span className="text-duo-blue">Prompting Gap.</span>
             </h1>
             
-            <p className="text-xl text-[#777] md:max-w-xl mb-10 font-bold leading-relaxed">
-              Helping 30M+ non-native developers master <span className="text-[#3c3c3c] underline decoration-duo-yellow decoration-4 underline-offset-4">Technical Prompt English</span> to direct AI with 100% precision.
-            </p>
+            <div className="space-y-8 text-left max-w-2xl mx-auto md:mx-0">
+              <p className="text-lg text-[#4b4b4b] font-bold leading-relaxed">
+                vibecolingo 是一款通过微学习，帮助非英语母语者掌握“技术指令英语”，从而更精准地与 AI 编程助手沟通的交互式学习 App。
+              </p>
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {[
-                { label: "Precision Gap", val: "Converting 'vague vibes' into executable code instructions." },
-                { label: "Market Fit", val: "Targeting the rapidly growing AI-native developer population." },
-                { label: "Context First", val: "Visual-driven learning vs. traditional grammar rote-memorization." },
-                { label: "Efficiency", val: "Reducing AI hallucination by 40% through high-quality input." }
-              ].map(point => (
-                <div key={point.label} className="p-4 rounded-2xl bg-[#f7f7f7] border-2 border-transparent hover:border-[#e5e5e5] transition-all">
-                  <p className="text-[10px] font-black uppercase text-duo-blue mb-1">{point.label}</p>
-                  <p className="text-xs font-bold text-[#4b4b4b] leading-tight">{point.val}</p>
-                </div>
-              ))}
+              <div>
+                <h3 className="text-xs font-black uppercase tracking-widest text-duo-red mb-4">核心用户痛点</h3>
+                <ul className="space-y-3">
+                  {[
+                    { t: "词不达意", d: "只会用 make it pretty, fix bug 等笼统词汇，AI 给的代码质量全靠运气。" },
+                    { t: "术语卡壳", d: "知道效果但不知道用 border-radius, overflow 等准确技术词汇描述。" },
+                    { t: "句式混乱", d: "无法将零散想法组织成逻辑清晰、有主语谓语的技术指令。" }
+                  ].map(item => (
+                    <li key={item.t} className="flex gap-3 items-start">
+                      <span className="h-5 w-5 shrink-0 rounded-full bg-duo-red/10 flex items-center justify-center text-[10px]">❌</span>
+                      <p className="text-sm font-bold text-[#777]"><span className="text-[#3c3c3c]">{item.t}：</span>{item.d}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="p-6 rounded-3xl bg-[#f2ffeb] border-2 border-b-4 border-duo-green-dark/20">
+                <h3 className="text-xs font-black uppercase tracking-widest text-duo-green mb-2">产品核心机制：Vibe-Driven Learning</h3>
+                <p className="text-sm font-bold text-[#4b4b4b] leading-relaxed">
+                  所有的学习都围绕“一个视觉目标”或“一个 Bug 场景”展开，学习的是如何“描述”它，而不是死记硬背语法。
+                </p>
+              </div>
             </div>
           </div>
           
