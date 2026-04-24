@@ -19,7 +19,7 @@ export default function HomePage() {
               <div className="h-10 w-10 rounded-xl bg-duo-green border-b-4 border-duo-green-dark shadow-sm flex items-center justify-center text-white text-xl font-black">
                 
               </div>
-              <span className="text-xl font-black tracking-tighter text-[#58cc02] uppercase group-hover:scale-105 transition-transform">vibecolingo</span>
+              <span className="text-xl font-black tracking-tighter text-[#58cc02] uppercase group-hover:scale-105 transition-transform">2026</span>
             </div>
             <div className="hidden md:flex items-center gap-8">
               {navItems.map((item) => (
@@ -37,9 +37,6 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="mb-24 flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 text-center md:text-left">
-            <div className="inline-block px-4 py-1 rounded-full bg-[#f2ffeb] border-2 border-[#58cc02] mb-6">
-              <span className="text-xs font-black text-[#58cc02] uppercase tracking-widest text-center">Investor Demo · Product Vision 2026</span>
-            </div>
             
             <h1 className="font-black leading-[1.1] tracking-tight mb-8 text-[#3c3c3c]">
               <span className="text-duo-blue block mb-2 text-4xl md:text-6xl lg:text-7xl">VibeCoLingo</span>
@@ -66,13 +63,6 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-
-              <div className="p-6 rounded-3xl bg-[#f2ffeb] border-2 border-b-4 border-duo-green-dark/20">
-                <h3 className="text-xs font-black uppercase tracking-widest text-duo-green mb-2">产品核心机制：Vibe-Driven Learning</h3>
-                <p className="text-sm font-bold text-[#4b4b4b] leading-relaxed">
-                  所有的学习都围绕“一个视觉目标”或“一个 Bug 场景”展开，学习的是如何“描述”它，而不是死记硬背语法。
-                </p>
-              </div>
             </div>
           </div>
           
@@ -88,6 +78,13 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        <div className="mb-24 p-8 rounded-3xl bg-[#f2ffeb] border-2 border-b-4 border-duo-green-dark/20">
+          <h3 className="text-xs font-black uppercase tracking-widest text-duo-green mb-2">产品核心机制：Vibe-Driven Learning</h3>
+          <p className="text-lg font-bold text-[#4b4b4b] leading-relaxed">
+            所有的学习都围绕“一个视觉目标”或“一个 Bug 场景”展开，学习的是如何“描述”它，而不是死记硬背语法。
+          </p>
+        </div>
 
         {/* Interactive Modules Section */}
         <section className="mb-32">
