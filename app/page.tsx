@@ -1,4 +1,5 @@
 import { InteractiveModules } from "@/components/InteractiveModules";
+import { UserMenu } from "@/components/UserMenu";
 import { badges } from "@/data/demoContent";
 
 const navItems = [
@@ -25,9 +26,7 @@ export default function HomePage() {
                 </a>
               ))}
             </div>
-            <div className="rounded-full bg-[#f7f7f7] border-2 border-[#e5e5e5] px-4 py-1">
-              <span className="text-[10px] font-black text-[#afafaf] uppercase tracking-widest">Pitch Deck Preview</span>
-            </div>
+            <UserMenu />
           </nav>
         </header>
 

@@ -119,9 +119,9 @@ Deck
 | Framework | Next.js 15 (App Router) | Already in use; API routes cover backend needs |
 | Language | TypeScript | Already in use |
 | Styling | Tailwind CSS v4 | Already in use |
-| Database | PostgreSQL via Supabase | Managed, free tier, real-time subscriptions for the review queue |
-| ORM | Prisma | Type-safe, good Next.js integration |
-| Auth | Clerk | Quick setup, handles GitHub OAuth for repo access later |
+| Database | Firestore (Firebase) | NoSQL document DB; no schema migrations; real-time listeners for review queue; Google credits |
+| Auth | Firebase Auth (Google Sign-In) | One-click Google login; integrates natively with Firestore security rules; Google credits |
+| Hosting | Firebase App Hosting | Native Next.js SSR support; integrates with Firebase project; Google credits |
 | AI | Vercel AI SDK + Google Gemini (`@ai-sdk/google`) | `generateObject()` returns Zod-validated structured output in a single serverless-friendly call; no separate server process; Gemini 2.5 Flash is fast and cost-effective for code-to-exercise generation |
 | GitHub data | Octokit REST | Fetch file tree and file contents |
 | Spaced repetition | Custom SM-2 impl | Simple enough to own; no external dependency needed |
@@ -171,9 +171,13 @@ Environment variable required: `GOOGLE_GENERATIVE_AI_API_KEY`
 
 ### Phase 0 — Foundation (current state)
 - [x] Investor demo UI complete
-- [ ] Set up Supabase project and Prisma schema
-- [ ] Set up Clerk auth (email + GitHub)
-- [ ] Create basic authenticated layout (header with user avatar, sign-out)
+- [x] Firebase client + Admin SDK wired up (`lib/firebase.ts`, `lib/firebase-admin.ts`)
+- [x] Firebase Auth with Google Sign-In (`contexts/AuthContext.tsx`)
+- [x] `UserMenu` component in header — shows avatar + sign-out when authenticated
+- [x] Firestore security rules + composite indexes defined
+- [x] Firebase App Hosting config (`firebase.json`, `apphosting.yaml`)
+- [ ] Create Firebase project in console and fill `.env.local` from `.env.local.example`
+- [ ] Deploy Firestore rules and indexes (`firebase deploy --only firestore`)
 
 ### Phase 1 — Repo Ingestion
 - [ ] GitHub URL input page (`/ingest`)

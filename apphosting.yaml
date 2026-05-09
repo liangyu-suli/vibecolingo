@@ -1,0 +1,8 @@
+runConfig:
+  runtime: nodejs20
+
+env:
+  - variable: GOOGLE_GENERATIVE_AI_API_KEY
+    secret: GOOGLE_GENERATIVE_AI_API_KEY
+    availability:
+      - RUNTIME

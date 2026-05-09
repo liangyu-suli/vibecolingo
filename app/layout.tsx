@@ -1,15 +1,18 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from "next"
+import "./globals.css"
+import { AuthProvider } from "@/contexts/AuthContext"
 
 export const metadata: Metadata = {
-  title: "vibecolingo Investor Demo",
-  description: "Interactive investor demo for vibecolingo"
-};
+  title: "VibeCoLingo",
+  description: "Learn to prompt AI coding assistants with precision",
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-CN">
-      <body>{children}</body>
+      <body>
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
-  );
+  )
 }

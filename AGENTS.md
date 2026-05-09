@@ -44,7 +44,19 @@ vibecolingo/
 │   ├── LESSONS.md             # Lesson content definitions (to be populated)
 │   └── PROGRESS.md            # Progress tracking schema/data (to be populated)
 │
-├── next.config.ts             # Next.js config
+├── contexts/
+│   └── AuthContext.tsx         # Firebase Auth React context — useAuth() hook, ensureUserDoc()
+│
+├── lib/
+│   ├── firebase.ts             # Client SDK: exports auth, db (Firestore)
+│   └── firebase-admin.ts       # Admin SDK: exports adminAuth, adminDb (server-side only)
+│
+├── firebase.json               # Firebase project config (Firestore rules + App Hosting)
+├── apphosting.yaml             # Firebase App Hosting runtime config + secret bindings
+├── firestore.rules             # Firestore security rules
+├── firestore.indexes.json      # Composite index definitions
+├── .env.local.example          # Required env vars template (copy to .env.local)
+├── next.config.ts              # Next.js config
 ├── tsconfig.json              # TypeScript config
 ├── postcss.config.mjs         # PostCSS config (Tailwind v4)
 └── package.json               # Dependencies: next, react, react-dom, tailwindcss
@@ -92,12 +104,11 @@ vibecolingo/
 | Layer | Choice |
 |---|---|
 | Framework | Next.js 15 (App Router) |
-| Database | PostgreSQL via Supabase |
-| ORM | Prisma |
-| Auth | Clerk |
+| Database | Firestore (Firebase) — document model, no ORM |
+| Auth | Firebase Auth — Google Sign-In via `signInWithPopup` |
+| Hosting | Firebase App Hosting — native Next.js SSR |
 | AI | Vercel AI SDK + Google Gemini (`@ai-sdk/google`) — `generateObject()` with Zod schema, `gemini-2.5-flash` by default |
 | GitHub data | Octokit REST |
-| Deployment | Vercel |
 
 ---
 
