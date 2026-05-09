@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "emulators": "firebase emulators:start --import=.firebase-data --export-on-exit=.firebase-data",
+    "dev:full": "concurrently -n emulators,next -c blue,green \"npm run emulators\" \"npm run dev\""
   },
   "dependencies": {
     "@ai-sdk/google": "^3.0.71",
@@ -22,6 +24,7 @@
     "@types/node": "^22.14.1",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "concurrently": "^9.2.1",
     "tailwindcss": "^4.1.5",
     "typescript": "^5.8.3"
   }
