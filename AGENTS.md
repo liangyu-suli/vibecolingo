@@ -56,6 +56,7 @@ vibecolingo/
 ├── firestore.rules             # Firestore security rules
 ├── firestore.indexes.json      # Composite index definitions
 ├── .env.local.example          # Required env vars template (copy to .env.local)
+├── setup-dev.sh                # One-time local dev setup (Firebase CLI, emulator config, .env.local)
 ├── next.config.ts              # Next.js config
 ├── tsconfig.json              # TypeScript config
 ├── postcss.config.mjs         # PostCSS config (Tailwind v4)
