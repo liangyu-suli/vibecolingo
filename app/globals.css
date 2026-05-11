@@ -35,6 +35,71 @@ body {
   scroll-behavior: smooth;
 }
 
+.landing-shell {
+  background: radial-gradient(circle at 8% 10%, #f2ffeb 0%, #ffffff 35%), radial-gradient(circle at 92% 8%, #e9f7ff 0%, #ffffff 30%);
+}
+
+.landing-section {
+  margin-bottom: 5.5rem;
+}
+
+.landing-kicker {
+  width: fit-content;
+  border-radius: 9999px;
+  border: 2px solid #d7f0c3;
+  background: #f2ffeb;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #3d7d14;
+}
+
+.landing-nav-link {
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #909090;
+  transition: color 120ms ease;
+}
+
+.landing-nav-link:hover {
+  color: #3d3d3d;
+}
+
+.landing-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.landing-chip {
+  border: 2px solid #e5e5e5;
+  border-bottom-width: 4px;
+  border-radius: 9999px;
+  background: #ffffff;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #5a5a5a;
+}
+
+.landing-step-card {
+  border: 2px solid #e5e5e5;
+  border-bottom-width: 6px;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  padding: 1.25rem;
+}
+
+.landing-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
 .card-white {
   background: white;
   border: 2px solid #e5e5e5;
@@ -49,45 +114,20 @@ body {
   @apply mt-2 text-[#777] text-base md:text-lg font-medium leading-relaxed;
 }
 
-/* 3D Button Style */
 .btn-primary-3d {
-  @apply relative inline-flex items-center justify-center px-6 py-3 rounded-2xl 
-         font-bold transition-all duration-100 bg-duo-green text-white 
-         border-b-4 border-duo-green-dark hover:brightness-110 active:translate-y-[2px] active:border-b-0;
-}
-
-.btn-secondary-3d {
-  @apply relative inline-flex items-center justify-center px-6 py-3 rounded-2xl 
-         font-bold transition-all duration-100 bg-duo-blue text-white 
-         border-b-4 border-duo-blue-dark hover:brightness-110 active:translate-y-[2px] active:border-b-0;
+  @apply relative inline-flex items-center justify-center rounded-2xl border-b-4 border-duo-green-dark bg-duo-green px-6 py-3 font-bold text-white transition-all duration-100 hover:brightness-110 active:translate-y-[2px] active:border-b-0;
 }
 
 .btn-ghost-3d {
-  @apply relative inline-flex items-center justify-center px-6 py-3 rounded-2xl 
-         font-bold transition-all duration-100 bg-white text-[#afafaf] 
-         border-2 border-b-4 border-border-light hover:bg-slate-50 active:translate-y-[2px] active:border-b-2;
-}
-
-.option-btn-3d {
-  @apply w-full text-left p-4 rounded-2xl border-2 border-b-4 border-border-light bg-white 
-         transition-all duration-100 hover:bg-slate-50 active:translate-y-[2px] active:border-b-2
-         flex items-center gap-4;
+  @apply relative inline-flex items-center justify-center rounded-2xl border-2 border-b-4 border-border-light bg-white px-6 py-3 font-bold text-[#5f5f5f] transition-all duration-100 hover:bg-slate-50 active:translate-y-[2px] active:border-b-2;
 }
 
 .word-chip-3d {
-  @apply px-4 py-2 rounded-xl border-2 border-b-4 border-border-light bg-white 
-         text-[#4b4b4b] font-bold transition-all hover:bg-slate-50 
-         active:translate-y-[2px] active:border-b-2 cursor-pointer select-none min-h-[48px] flex items-center justify-center;
+  @apply min-h-[48px] cursor-pointer select-none items-center justify-center rounded-xl border-2 border-b-4 border-border-light bg-white px-4 py-2 font-bold text-[#4b4b4b] transition-all hover:bg-slate-50 active:translate-y-[2px] active:border-b-2;
 }
 
-.badge-card {
-  @apply p-4 rounded-2xl border-2 border-b-4 border-border-light flex flex-col items-center text-center gap-2 transition-transform hover:scale-105;
-}
-
-.text-en {
-  @apply font-bold text-[#3c3c3c];
-}
-
-.text-zh {
-  @apply font-medium text-[#777];
+@media (max-width: 768px) {
+  .landing-section {
+    margin-bottom: 4rem;
+  }
 }

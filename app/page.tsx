@@ -1,167 +1,182 @@
-import { InteractiveModules } from "@/components/InteractiveModules";
-import { badges } from "@/data/demoContent";
+import Link from "next/link";
+import { UiPrecisionTeaser } from "@/components/InteractiveModules";
 
 const navItems = [
-  { href: "#module-1", label: "UI Design" },
-  { href: "#module-2", label: "Bug Report" },
-  { href: "#module-3", label: "Sentence" },
-  { href: "#module-4", label: "Style" }
+  { href: "#how-it-works", label: "How It Works" },
+  { href: "#teaser", label: "Try" },
+  { href: "#faq", label: "FAQ" }
 ];
+
+const trustItems = ["Bilingual learning", "30-second drills", "Built for AI-native creators"];
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#ffffff] px-4 py-8 md:px-8">
-      <div className="mx-auto max-w-5xl">
-        {/* Navigation Header */}
-        <header className="sticky top-0 z-50 mb-16 bg-white/80 backdrop-blur-md border-b-2 border-[#e5e5e5]">
+    <div className="landing-shell">
+      <div className="mx-auto max-w-6xl px-4 py-6 md:px-8 md:py-8">
+        <header className="sticky top-0 z-50 mb-10 border-b-2 border-[#e5e5e5] bg-white/85 backdrop-blur-md">
           <nav className="flex items-center justify-between px-2 py-4 md:px-4">
-            <div className="flex items-center gap-3 group cursor-pointer">
-              <span className="text-xl font-black tracking-tighter text-[#58cc02] uppercase group-hover:scale-105 transition-transform">VibeCoLingo</span>
-            </div>
-            <div className="hidden md:flex items-center gap-8">
+            <Link href="/" className="text-xl font-black tracking-tight text-duo-green">
+              VibeCoLingo
+            </Link>
+            <div className="hidden items-center gap-7 md:flex">
               {navItems.map((item) => (
-                <a key={item.href} href={item.href} className="text-sm font-black text-[#afafaf] hover:text-[#4b4b4b] transition-colors uppercase tracking-wide">
+                <a key={item.href} href={item.href} className="landing-nav-link">
                   {item.label}
                 </a>
               ))}
             </div>
-            <div className="rounded-full bg-[#f7f7f7] border-2 border-[#e5e5e5] px-4 py-1">
-              <span className="text-[10px] font-black text-[#afafaf] uppercase tracking-widest">Pitch Deck Preview</span>
-            </div>
+            <Link href="/lesson" className="btn-primary-3d px-4 py-2 text-sm">
+              Start Free Lesson
+            </Link>
           </nav>
         </header>
 
-        {/* Hero Section */}
-        <section className="mb-8 flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1 text-center md:text-left">
-            
-            <h1 className="font-black leading-[1.1] tracking-tight mb-8 text-[#3c3c3c]">
-              <span className="text-duo-blue block mb-2 text-4xl md:text-6xl lg:text-7xl">VibeCoLingo</span>
-              <span className="text-2xl md:text-4xl lg:text-5xl block">Bridging the Prompting Gap.</span>
+        <section className="landing-section grid items-center gap-10 md:grid-cols-2">
+          <div>
+            <p className="landing-kicker">Speak AI Clearly</p>
+            <h1 className="mt-3 text-4xl font-black leading-tight text-[#2f2f2f] md:text-6xl">
+              Learn prompt English that ships better code.
             </h1>
-            
-            <div className="space-y-8 text-left max-w-2xl mx-auto md:mx-0">
-              <p className="text-lg text-[#4b4b4b] font-bold leading-relaxed">
-                vibecolingo 是一款帮助非英语母语者掌握“技术指令英语”，从而更精准地与 AI 编程助手沟通的交互式学习 App。
-              </p>
-
-              <div>
-                <h3 className="text-xs font-black uppercase tracking-widest text-duo-blue mb-4">核心用户痛点</h3>
-                <ul className="space-y-3">
-                  {[
-                    { t: "词不达意", d: "只会用 make it pretty, fix bug 等笼统词汇，AI 给的代码质量全靠运气。" },
-                    { t: "术语卡壳", d: "知道效果但不知道用 border-radius, overflow 等准确技术词汇描述。" },
-                    { t: "句式混乱", d: "无法将零散想法组织成逻辑清晰、有主语谓语的技术指令。" }
-                  ].map(item => (
-                    <li key={item.t} className="flex gap-3 items-start">
-                      <div className="h-2 w-2 mt-2 shrink-0 rounded-full bg-[#afafaf]" />
-                      <p className="text-sm font-bold text-[#777]"><span className="text-[#3c3c3c]">{item.t}：</span>{item.d}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <p className="mt-4 text-lg font-bold text-[#5f5f5f]">
+              Train practical technical phrasing so AI assistants understand your intent on the first try.
+            </p>
+            <p className="mt-2 text-base font-bold text-[#7a7a7a]">
+              通过高频场景练习技术指令表达，让你更快写出清晰提示词，减少来回修改。
+            </p>
+            <div className="landing-cta-group mt-8">
+              <Link href="/lesson" className="btn-primary-3d px-7 py-4 text-lg">
+                Start Free Lesson
+              </Link>
+              <a href="#teaser" className="btn-ghost-3d px-7 py-4 text-lg">
+                See Sample Lesson
+              </a>
             </div>
           </div>
-          
-          <div className="hidden md:flex flex-1 justify-center relative">
-            <div className="h-64 w-64 rounded-full bg-[#f7f7f7] border-4 border-[#e5e5e5] flex items-center justify-center text-9xl animate-pulse">
-              🦉
-            </div>
-            <div className="absolute top-0 right-0 h-20 w-20 rounded-2xl bg-duo-yellow border-b-4 border-duo-yellow-dark flex items-center justify-center text-3xl shadow-lg rotate-12">
-              💰
-            </div>
-            <div className="absolute bottom-0 left-0 h-16 w-16 rounded-2xl bg-duo-green border-b-4 border-duo-green-dark flex items-center justify-center text-2xl shadow-lg -rotate-12">
-              📈
-            </div>
-          </div>
-        </section>
-
-        <div className="mb-24 p-4 rounded-3xl bg-[#f2ffeb] border-2 border-b-4 border-duo-green-dark/20">
-          <p className="text-md font-bold text-[#4b4b4b] leading-relaxed">
-            所有的学习都围绕“一个视觉目标”或“一个 Bug 场景”展开，学习的是如何“描述”它，而不是死记硬背语法。
-          </p>
-        </div>
-
-        {/* Interactive Modules Section */}
-        <section className="mb-32">
-          <div className="mb-16 text-center">
-            <h2 className="section-title mb-4">四种题目类型</h2>
-          </div>
-          <InteractiveModules />
-        </section>
-
-        {/* Value Props Section */}
-        <section className="grid gap-8 md:grid-cols-3 mb-32">
-          {[
-            { title: "Visual Logic", desc: "Speak in coordinates, radii, and shadows.", color: "bg-[#e0f2fe]", border: "border-duo-blue" },
-            { title: "Bug Hunter", desc: "Report crashes and overlaps like a pro.", color: "bg-[#f2ffeb]", border: "border-duo-green" },
-            { title: "Prompt Art", desc: "Craft logical commands that never fail.", color: "bg-[#fff9db]", border: "border-duo-yellow" }
-          ].map((item) => (
-            <div key={item.title} className={`${item.color} border-2 border-b-8 ${item.border} p-8 rounded-3xl transition-transform hover:-translate-y-2`}>
-              <h3 className="text-xl font-black text-[#3c3c3c] mb-3">{item.title}</h3>
-              <p className="text-[#4b4b4b] font-bold text-sm leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
-        </section>
-
-        {/* Engagement Loop */}
-        <section className="mb-32">
-          <div className="card-white p-10 md:p-16 text-center md:text-left relative overflow-hidden">
-            <div className="absolute top-10 right-10 text-9xl opacity-10 rotate-12 hidden md:block">🏆</div>
-            <div className="relative z-10">
-              <h2 className="text-4xl font-black text-[#3c3c3c] mb-8">Ready to level up?</h2>
-              
-              <div className="grid gap-8 md:grid-cols-2 mb-12">
-                <div className="space-y-6">
-                  {[
-                    { t: "Daily Streaks", d: "Keep the fire burning by completing one lesson a day." },
-                    { t: "XP & Rewards", d: "Earn gems and badges as you master technical terms." },
-                    { t: "Real Projects", d: "Use your skills to build actual apps with AI help." }
-                  ].map(item => (
-                    <div key={item.t} className="flex gap-5">
-                      <div className="h-6 w-6 shrink-0 mt-1 rounded-full bg-duo-yellow shadow-[0_3px_0_0_#e5a400]" />
-                      <div>
-                        <h4 className="text-lg font-black text-[#3c3c3c]">{item.t}</h4>
-                        <p className="text-sm font-bold text-[#777]">{item.d}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="grid grid-cols-3 gap-4">
-                  {badges.map((badge) => (
-                    <div key={badge.en} className="badge-card group">
-                      <div className="h-16 w-16 rounded-3xl bg-[#f7f7f7] border-2 border-b-4 border-[#e5e5e5] flex items-center justify-center text-3xl transition-transform group-hover:scale-110">
-                        {badge.en === "Bug Terminator" ? "🚫" : badge.en === "Precision Crafter" ? "🎯" : "💎"}
-                      </div>
-                      <h4 className="text-[10px] font-black text-[#3c3c3c] mt-2 uppercase tracking-tighter">{badge.en}</h4>
-                      <p className="text-[8px] font-black text-duo-green">{badge.zh}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-12 p-6 rounded-3xl bg-[#f2ffeb] border-2 border-[#58cc02] border-dashed">
-                <p className="text-[#58cc02] font-black text-center text-sm uppercase tracking-widest">Scalable Content Architecture · Ready for Global Expansion</p>
+          <div className="rounded-3xl border-2 border-[#d8f3c4] bg-gradient-to-br from-[#f2ffeb] via-[#fcfff9] to-[#e8f6ff] p-8 shadow-sm">
+            <h2 className="text-xl font-black text-[#3c3c3c]">From vague to precise</h2>
+            <div className="mt-5 space-y-3">
+              <div className="rounded-2xl border-2 border-[#ffdede] bg-[#fff5f5] p-4 text-sm font-bold text-[#9f4f4f]">"make it pretty"</div>
+              <div className="rounded-2xl border-2 border-[#d5f4bf] bg-[#f2ffeb] p-4 text-sm font-bold text-[#3d7d14]">
+                "Use a 12px border radius and fixed top navbar with blur background."
               </div>
             </div>
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="border-t-2 border-[#e5e5e5] py-16 text-center">
-          <h2 className="text-3xl font-black mb-4 text-[#3c3c3c]">Not English classes. Prompt fluency.</h2>
-          <p className="text-[#777] font-bold max-w-lg mx-auto mb-10 leading-relaxed">
-            vibecolingo is the "professional dialect" layer between human vision and AI execution. We're building the infrastructure for the next generation of AI-native developers.
-          </p>
-          <div className="flex justify-center gap-8 mb-8">
-            <span className="text-2xl cursor-pointer hover:scale-110 transition-transform">🦉</span>
-            <span className="text-2xl cursor-pointer hover:scale-110 transition-transform">💰</span>
-            <span className="text-2xl cursor-pointer hover:scale-110 transition-transform">📈</span>
-            <span className="text-2xl cursor-pointer hover:scale-110 transition-transform">🚀</span>
+        <section className="landing-section">
+          <div className="landing-trust-row">
+            {trustItems.map((item) => (
+              <span key={item} className="landing-chip">
+                {item}
+              </span>
+            ))}
           </div>
-          <p className="text-xs font-black text-[#afafaf] uppercase tracking-[0.2em]">Contact: investor-relations@vibecolingo.io</p>
-        </footer>
+        </section>
+
+        <section className="landing-section">
+          <h2 className="section-title">Why learners use VibeCoLingo</h2>
+          <p className="section-subtitle">Stop guessing words. Start giving AI exact technical intent.</p>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                en: "Prompt Clarity",
+                zh: "表达更准确",
+                desc: "Learn actionable phrasing patterns instead of vague commands."
+              },
+              {
+                en: "Faster Iteration",
+                zh: "迭代更高效",
+                desc: "Reduce rewrite loops by giving AI structured instructions first."
+              },
+              {
+                en: "Real Task Context",
+                zh: "贴近真实任务",
+                desc: "Practice with UI, bug, and style scenarios you actually face."
+              }
+            ].map((item) => (
+              <div key={item.en} className="card-white p-6">
+                <h3 className="text-lg font-black text-[#333]">{item.en}</h3>
+                <p className="mt-1 text-sm font-black text-duo-blue">{item.zh}</p>
+                <p className="mt-3 text-sm font-bold leading-relaxed text-[#666]">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="how-it-works" className="landing-section">
+          <h2 className="section-title">How It Works</h2>
+          <p className="section-subtitle">Three short steps to reliable AI communication.</p>
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {[
+              { step: "01", en: "See", zh: "观察", desc: "Inspect a visual goal or bug scene." },
+              { step: "02", en: "Describe", zh: "描述", desc: "Build a precise technical instruction." },
+              { step: "03", en: "Apply", zh: "应用", desc: "Use it directly with your coding assistant." }
+            ].map((item) => (
+              <div key={item.step} className="landing-step-card">
+                <p className="text-sm font-black tracking-widest text-duo-green">STEP {item.step}</p>
+                <h3 className="mt-2 text-2xl font-black text-[#333]">{item.en}</h3>
+                <p className="text-sm font-black text-duo-blue">{item.zh}</p>
+                <p className="mt-3 text-sm font-bold text-[#666]">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="teaser" className="landing-section">
+          <div className="mb-6 text-center">
+            <h2 className="section-title">Try a 30-Second Challenge</h2>
+            <p className="section-subtitle">Pick the most precise prompt and feel the difference.</p>
+          </div>
+          <UiPrecisionTeaser />
+          <div className="mt-8 text-center">
+            <Link href="/lesson" className="btn-primary-3d px-7 py-4 text-lg">
+              Continue to Full Lesson
+            </Link>
+          </div>
+        </section>
+
+        <section id="faq" className="landing-section">
+          <h2 className="section-title">FAQ</h2>
+          <div className="mt-8 grid gap-4">
+            {[
+              {
+                q: "Do I need to be fluent in English?",
+                a: "No. We focus on practical technical instruction patterns, not traditional grammar classes.",
+                zh: "不需要。课程重点是技术表达模板，不是传统语法课。"
+              },
+              {
+                q: "How long is each lesson?",
+                a: "Most drills are 30-90 seconds and designed for daily repetition.",
+                zh: "大多数练习为 30-90 秒，适合每日快速练习。"
+              },
+              {
+                q: "Who is this for?",
+                a: "Learners who build with AI tools and want clearer, more reliable outputs.",
+                zh: "面向使用 AI 工具创作并希望获得更稳定结果的学习者。"
+              }
+            ].map((item) => (
+              <div key={item.q} className="card-white p-6">
+                <h3 className="text-lg font-black text-[#333]">{item.q}</h3>
+                <p className="mt-2 text-sm font-bold text-[#666]">{item.a}</p>
+                <p className="mt-1 text-sm font-bold text-[#7a7a7a]">{item.zh}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="landing-section pb-12">
+          <div className="rounded-3xl border-2 border-b-8 border-duo-green bg-[#f2ffeb] p-8 text-center md:p-12">
+            <h2 className="text-3xl font-black text-[#2f2f2f] md:text-4xl">Write prompts that AI can execute.</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-base font-bold text-[#5f5f5f]">
+              Build confidence with short bilingual drills and start shipping clearer requests today.
+            </p>
+            <div className="mt-8">
+              <Link href="/lesson" className="btn-primary-3d px-8 py-4 text-lg">
+                Start Free Lesson
+              </Link>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );
