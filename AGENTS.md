@@ -105,11 +105,11 @@ vibecolingo/
 | Layer | Choice |
 |---|---|
 | Framework | Next.js 15 (App Router) |
-| Database | Firestore (Firebase) — document model, no ORM |
-| Auth | Firebase Auth — Google Sign-In via `signInWithPopup` |
-| Hosting | Firebase App Hosting — native Next.js SSR |
+| Database | MongoDB — accessed only through `lib/db/` repository interfaces. No Mongo driver imports outside `lib/db/mongo/`. |
+| Auth | Auth.js v5 (`next-auth@beta`) + `@auth/mongodb-adapter`, Google provider. Sessions in Mongo; server-side enforcement via the `auth()` helper in API routes. |
+| Hosting | Self-hosted Next.js on a VPS (Docker + Docker Compose); Caddy/nginx in front for TLS. No Firebase, no Vercel-specific code. |
 | AI | Vercel AI SDK + Google Gemini (`@ai-sdk/google`) — `generateObject()` with Zod schema, `gemini-2.5-flash` by default |
-| GitHub data | Octokit REST |
+| GitHub data | Octokit REST (server-side `GITHUB_TOKEN`) |
 
 ---
 
