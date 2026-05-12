@@ -1,63 +1,60 @@
-# vibecolingo Investor Demo Web Plan (English)
-
-## Is an English Product Doc Better for Implementation?
-Short answer: helpful, but not required.
-- The Chinese doc is already sufficient for implementation.
-- An English version improves wording consistency for a bilingual UI.
-- It is also easier to reuse in investor-facing and global pitch materials.
-- Recommended approach: keep Chinese as source-of-truth, add a concise investor-style English brief.
+# VibeCoLingo SaaS Landing Plan (Phase 1)
 
 ## 1. Goal and Deliverable
-- Build a Vercel-deployable single-page website for investors to quickly understand the product concept.
-- Visualize all 4 core learning modules as interactive front-end UI blocks (not static mockups).
-- Prioritize responsive experience so investors can review on mobile.
+- Reposition VibeCoLingo from a UI-only investor demo to a professional SaaS learning platform.
+- Deliver a Vercel-ready single-page landing experience that communicates full-stack prompt training value.
+- Keep this phase focused on docs + landing content architecture + static ranking visualization (no backend implementation).
 
-## 2. Technical Stack
-- Framework: Next.js (App Router)
-- Styling: Tailwind CSS
-- Structure: Narrative single-page landing with anchor navigation
-- Deployment: Vercel (deployment operation by you)
+## 2. Product Positioning
+- Core promise: help teams turn architecture intent into high-quality AI execution.
+- Learning model: Vibe Coding, where users practice flow, system boundaries, and outcome-oriented prompt language.
+- Audience: AI-native builders, product engineers, and cross-functional teams shipping software with assistants.
 
-## 3. Page Information Architecture
-- Hero: one-line definition + core value
-- Pain Points: vague wording / terminology gaps / sentence structure issues
-- Four Modules Demo: interactive showcase of all modules
-- Gamification Loop: daily challenge, XP/levels, badges, instant feedback, review loop
-- CTA: final positioning statement ("professional dialect" for AI communication)
+## 3. Information Architecture (Landing)
+- Hero: professional SaaS message around architecture intent and execution quality.
+- 5-Track Capability Grid:
+  - UI Creation
+  - Backend Logic & Services
+  - Database Modeling & Query Intent
+  - API Design & Integration
+  - Networking, Reliability & Performance
+- Vibe Coding Method: intent -> architecture prompt -> execution refinement loop.
+- Scenario Teaser: show one prompt-quality interaction with framing for cross-track expansion.
+- Global Ranking Intelligence: score formula, rank tiers, profile metrics, leaderboard preview.
+- CTA: start free lesson / platform preview.
 
-## 4. UI Implementation for the Four Modules
-- Module 1 (UI Design Precision)
-  - Side-by-side visual comparison + 3-option question
-  - Instant feedback: correct/incorrect + concise explanation
-- Module 2 (Bug Diagnosis)
-  - Bug scenario card (GIF placeholder or short animation) + 3-option question
-  - Highlight complaint-style vs diagnostic-style reporting
-- Module 3 (Prompt Sentence Builder)
-  - Word-block reorder interaction
-  - Check answer + reset actions
-- Module 4 (Style Vocabulary)
-  - Style recognition + term matching
-  - Show assembled prompt prefix examples
+## 4. Ranking and Profile Intelligence (Spec-Level)
+- Scoring formula:
+  - `global_score = accuracy x complexity_weight x speed_factor x consistency_bonus`
+- Rank tiers:
+  - Explorer
+  - Builder
+  - Architect
+  - Operator
+  - Principal
+- Profile metrics:
+  - Track radar across UI/Backend/DB/API/Networking
+  - Global percentile
+  - Streak trend and progression to next tier
+- Leaderboard behavior:
+  - Global board with trend deltas
+  - Seasonal cadence defined as product behavior, not implemented in this phase
 
-## 5. Responsive and Mobile-First Strategy (Critical)
-- Use a mobile-first layout system.
-- Stack content vertically on phones to avoid compressed two-column layouts.
-- Ensure touch targets are at least 44px.
-- Keep media containers adaptive and prevent horizontal overflow.
-- Use Chinese-primary with concise English parallel text for readability on small screens.
+## 5. Public Contracts for Next Phase
+- `Track = "ui" | "backend" | "db" | "api" | "networking"`
+- `ScoreEvent`: captures scoring inputs per training action
+- `UserRankProfile`: total score, per-track scores, tier, percentile, streak
+- `LeaderboardEntry`: user handle, tier, total score, trend
 
-## 6. Data and Component Organization
-- Render exercises from structured config data (prompt/options/answer/explanation).
-- Build a shared module container component and reuse it across all four modules.
-- Keep content and interaction decoupled to support quick expansion and copy updates.
+## 6. Acceptance Criteria
+- Landing narrative fully reflects professional SaaS positioning and 5-track scope.
+- No bug-diagnosis or bug-fix phrasing remains in docs or landing copy.
+- Vibe Coding philosophy is explicit: intent, architecture, and flow over low-level minutiae.
+- Ranking model and profile visualization behavior are documented clearly for implementation handoff.
+- Mobile width (375px) and desktop remain readable with no horizontal overflow.
+- `npm run build` passes.
 
-## 7. Acceptance Criteria
-- All 4 modules are fully interactive with immediate feedback.
-- Mobile width (375px): no clipping, no horizontal scrolling, clear and tappable UI.
-- Tablet/desktop layouts remain readable with clear hierarchy.
-- `npm run build` passes and project is ready for Vercel import/deploy.
-
-## 8. Scope and Defaults
-- Demo-only front-end for this phase; no auth, no persistence, no backend integration.
-- Bug media can start with placeholders and be replaced later.
-- Priority is investor communication clarity and visual storytelling efficiency.
+## 7. Scope and Defaults
+- Phase 1 is frontend narrative and spec alignment only.
+- No auth, persistence, backend scoring engine, or live leaderboard in this phase.
+- Existing visual language is refined rather than replaced with a full rebrand.

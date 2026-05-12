@@ -1,77 +1,81 @@
-产品设计文档：vibecolingo
+产品设计文档：VibeCoLingo（SaaS 方向）
 
 一句话定义
-vibecolingo 是一款通过微学习，帮助非英语母语者掌握“技术指令英语”，从而更精准地与 AI 编程助手沟通的交互式学习App。
+VibeCoLingo 是一款面向 AI 时代软件团队的交互式训练平台，通过微学习帮助非英语母语者掌握跨栈“技术意图表达”，从而更高质量地驱动 AI 产出。
 
-核心用户痛点
-* 词不达意：只会用 make it pretty, fix bug, can't work 等笼统词汇，AI 给的代码质量全靠运气。
-* 术语卡壳：知道想要什么效果，但不知道用 border-radius, overflow, asynchronous 等准确技术词汇来描述。
-* 句式混乱：无法将零散想法组织成逻辑清晰、有主语谓语的技术指令。
+产品定位
+- 不是传统语法课，而是“AI 协作语言系统”。
+- 目标不是背术语，而是把产品目标、架构边界、执行约束说清楚。
+- 方法遵循 Vibe Coding：先意图、再架构、再优化执行。
 
-产品核心机制：Vibe-Driven Learning
-所有的学习都围绕“一个视觉目标”或“一个Bug场景”展开，学习的是如何“描述”它，而不是死记硬背语法。
+核心用户痛点（升级版）
+- 目标表达模糊：只能说“做快一点”“写得更好”，无法说明结果标准。
+- 架构意图缺失：知道要功能，但说不清服务边界、数据流和接口契约。
+- 跨栈沟通断层：UI、后端、数据库、API、网络优化语言不统一，导致 AI 结果不稳定。
 
-核心学习方法与功能模块设计
-模块一：UI设计 —— 准确描述产品该长什么样
-* 目标：训练用户对程度、风格、状态的精确描述能力。
-* 玩法：左右视觉对比 + 单选
-* 题目设计：
-    * 展示两张UI截图，左图是“原版”，右图是“目标效果”。箭头或高亮会提示差异点。
-    * 用户需要从3个选项中，选出能精确导致右侧效果的指令。
-* 选项设计哲学 (关键)：
-    * A. 太笼统：Make the button look good. (AI会困惑，怎么算“good”？)
-    * B. 正确且地道：Apply a subtle rounded corner to the button. ( subtle 是关键形容词，rounded corner 是准确术语)
-    * C. 错误/过火：Make the button perfectly round. (可能直接变成胶囊形或圆形按钮)
-* 延展题库：
-    * spacing: “add some space” vs “increase vertical padding slightly”
-    * typography: “make text bigger” vs “set a bolder font weight for the heading”
-    * color: “make it pop” vs “use a higher contrast accent color”
-模块二：Bug修复 —— 学会“诊断式”描述
-* 目标：从“用户式抱怨”转变为“开发者式报告”，提供AI能读懂的有效上下文。
-* 玩法：Bug截图/动画 + 单选
-* 题目设计：
-    * 展示一个动态Bug场景（GIF/视频），例如：点击按钮后页面闪白屏、列表滑动到顶部后无法弹回、文字在窄屏上挤出屏幕。
-    * 任务：选出对AI修复此Bug最有效的描述。
-* 选项设计哲学：
-    * A. 无效抱怨：It's broken.
-    * B. 症状描述 (不完整)：It's not working when I click.
-    * C. 正确且专业 (精准定位)：The page crashes with a white screen after the button click. 或 The text overflows its container on mobile screens.
-* 核心术语库：crash, freeze, overflow, overlap, disappear, fail to load, unresponsive, misaligned, flicker.
-模块三：需求拼句挑战 —— 组织“Prompt句型”
-* 目标：克服“蹦单词”的习惯，学会构建完整、通顺的祈使句。
-* 玩法：单词块拖拽/点击排序
-* 界面：底部提供6-8个打散的单词卡片。
-* 任务：组合成一个对AI最有效的指令。
-* 示例：
-    * 题目：给一个导航栏(Navbar)添加毛玻璃效果，并让它固定在页面顶部。
-    * 散落单词块：
-        * [the navbar] [to the top] [add] [a glassmorphism effect] [fix] [and] [of the page]
-    * 
+五大学习轨道（5 Tracks）
+1. UI Creation（界面创造）
+- 训练点：视觉层级、交互反馈、组件状态与风格约束表达。
+- 示例指令："Apply a subtle rounded corner while keeping visual weight balanced."
 
-正确拼句：
-[Add][a glassmorphism effect][to the navbar][and][fix][it][to the top][of the page]
-(注：“fix it to the top”是“固定在顶部”的地道说法，比 “make it stick” 更专业)
+2. Backend Logic & Services（后端逻辑与服务）
+- 训练点：业务流程、异步任务、容错机制、服务边界表达。
+- 示例指令："Build an async order workflow with queue workers and idempotent retries."
 
-* 学习点：动词置于句首的祈使句结构、常用搭配（apply to, fix to, align with）。
-模块四：风格描述 —— 掌握专业设计词汇
-* 目标：能准确调用高阶设计风格术语，让AI生成的UI直接具备专业气质。
-* 玩法：多种形式混合
-    * 图片匹配题：给出一张UI图，选出定义了它的风格术语（Glassmorphism, Brutalism, Minimalism, Neumorphism）。
-    * 风格描述题：“这张卡片有浮起感，有柔和的阴影，背景半透明且有模糊效果。” -> 选择 Glassmorphism。
-    * 风格指令拼接：拼出 In a minimalist style with ample whitespace 这样的指令前缀。
-* 核心术语库：
-    * 风格: Minimalist, Maximalist, Retro, Futuristic, Brutalist, Glassmorphism.
-    * 属性: Clean, Cluttered, Airy, Dense, Playful, Professional, Accessible.
-    * 组件: Carousel, Accordion, Modal, Tooltip, Toast notification.
-产品体验与“上瘾”循环设计 (借鉴Duolingo)
-* 游戏化：
-    * 每日打卡：每天完成“每日Vibe挑战”，包含以上四个模块的随机混合题。
-    * 经验值 & 等级：用“精准度”和“速度”加权评分。从“Junior Coder”升级到“Senior Prompt Engineer”。
-    * 成就徽章：“Bug终结者”（连续10次诊断正确）、“细节控”（形容词选择准确率100%）、“极简大师”（风格模块满分）。
-* 即时反馈：
-    * 选择正确：不仅仅显示“正确”，还要给一个简短提示，比如“完美！用‘overflow’这个词，AI一下就能定位到CSS问题。”
-    * 选择错误：友好地指出：“这个词太笼统了，AI可能会给你一个意想不到的结果。试试更精确的‘rounded corner’吧！”
-* 复习机制：在后续关卡中，将用户易错的词汇和句式以新场景的形式再次出现，加深记忆。
-* 视觉风格：可以充满科技感和一点可爱的像素风或极简设计。主色调可以是高对比度的霓虹色或温暖的代码编辑器主题色，让它看起来就像一个给创造者准备的工具。
+3. Database Modeling & Query Intent（数据库建模与查询意图）
+- 训练点：模型关系、索引策略、一致性约束、读写路径表达。
+- 示例指令："Design indexed query paths for read-heavy endpoints with predictable consistency."
+
+4. API Design & Integration（API 设计与集成）
+- 训练点：契约优先、字段语义、版本策略、集成流表达。
+- 示例指令："Define a contract-first API schema with explicit error and pagination semantics."
+
+5. Networking, Reliability & Performance（网络、可靠性与性能）
+- 训练点：延迟预算、缓存策略、重试机制、可用性目标表达。
+- 示例指令："Use a cache-first delivery path targeting p95 under 200ms with graceful fallback."
+
+学习方法：Vibe Coding Loop
+1. Intent（意图）
+- 先明确业务目标、用户价值和成功指标。
+2. Architect（架构）
+- 用高信号提示词描述系统流程、模块边界、关键约束。
+3. Execute & Optimize（执行与优化）
+- 根据输出质量持续优化指令，提升稳定性、可维护性和性能。
+
+评分与全球排名系统（概念与产品行为）
+全局评分公式
+- `global_score = accuracy x complexity_weight x speed_factor x consistency_bonus`
+
+等级体系（Rank Tiers）
+- Explorer
+- Builder
+- Architect
+- Operator
+- Principal
+
+个人资料页可视化（Profile Intelligence）
+- 五轨能力雷达：UI / Backend / DB / API / Networking
+- Global Percentile（全局百分位）
+- 趋势曲线：近 7/30 天分数变化
+- 升级进度：距离下一等级的分数差
+
+全球榜单（Leaderboard）
+- 展示项：用户标识、等级、总分、趋势变化（delta）
+- 赛季机制：按周期重置榜单并保留历史荣誉（本阶段仅定义，不实现）
+
+下一阶段公共接口约定（文档级）
+- `Track = "ui" | "backend" | "db" | "api" | "networking"`
+- `ScoreEvent`
+  - 字段建议：track, accuracy, complexityWeight, speedFactor, consistencyBonus, timestamp
+- `UserRankProfile`
+  - 字段建议：totalScore, trackScores, tier, percentile, streakDays
+- `LeaderboardEntry`
+  - 字段建议：handle, tier, totalScore, trend
+
+产品体验原则
+- 以“可执行意图”作为学习单位，而不是零散单词记忆。
+- 强调跨栈一致表达，让 AI 在多模块协作中保持稳定输出。
+- 每次反馈都解释“为什么这个表达更好”，帮助用户形成可迁移能力。
+
 一句话总结
-vibecolingo 不教英语语法，它教的是“与AI沟通的专业方言”。它不是让你成为英语大师，而是让你成为能精准表达需求的“AI导演”。
+VibeCoLingo 不只是教你怎么说英语，而是训练你用专业、可执行、跨栈一致的语言去“指挥 AI 构建产品”。

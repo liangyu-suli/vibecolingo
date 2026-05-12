@@ -10,75 +10,99 @@ export type ChoiceQuestion = {
   fail: string;
 };
 
-export const uiDesignQuestion: ChoiceQuestion = {
-  id: "ui-precision",
-  titleZh: "模块一：UI设计精确描述",
-  titleEn: "Module 1: UI Design Precision",
-  promptZh: "选择最可能让按钮从左图变成右图的描述。",
-  promptEn: "Pick the prompt that best turns the left button into the right one.",
-  options: [
-    "Make the button look good.",
-    "Apply a subtle rounded corner to the button.",
-    "Make the button perfectly round."
-  ],
-  correctIndex: 1,
-  success: "正确。'subtle rounded corner' 给了 AI 明确且可执行的风格指令。",
-  fail: "这个选项不够精确，AI 可能输出偏差较大的样式。"
+export type Track = "ui" | "backend" | "db" | "api" | "networking";
+
+export type ScoreEvent = {
+  track: Track;
+  accuracy: number;
+  complexityWeight: number;
+  speedFactor: number;
+  consistencyBonus: number;
+  timestamp: string;
 };
 
-export const bugQuestion: ChoiceQuestion = {
-  id: "bug-diagnosis",
-  titleZh: "模块二：Bug诊断式表达",
-  titleEn: "Module 2: Bug Diagnosis",
-  promptZh: "点击后出现白屏，哪句描述最有利于 AI 定位问题？",
-  promptEn: "After click, the page turns white. Which report helps AI debug fastest?",
+export type UserRankProfile = {
+  totalScore: number;
+  tier: "Explorer" | "Builder" | "Architect" | "Operator" | "Principal";
+  percentile: number;
+  streakDays: number;
+  trackScores: Record<Track, number>;
+};
+
+export type LeaderboardEntry = {
+  handle: string;
+  tier: UserRankProfile["tier"];
+  totalScore: number;
+  trend: string;
+};
+
+export const uiDesignQuestion: ChoiceQuestion = {
+  id: "ui-precision",
+  titleZh: "UI 轨道：界面意图表达",
+  titleEn: "UI Track: Interface Intent",
+  promptZh: "选择最能表达“微调圆角但保持专业感”的指令。",
+  promptEn: "Choose the prompt that best conveys subtle corner refinement with a professional tone.",
   options: [
-    "It's broken.",
-    "It's not working when I click.",
-    "The page crashes with a white screen after the button click."
+    "Make the button look nicer.",
+    "Apply a subtle rounded corner to the button and keep the visual weight balanced.",
+    "Turn the button into a fully circular shape."
   ],
-  correctIndex: 2,
-  success: "很好。你提供了触发条件和具体症状，这就是高质量 bug report。",
-  fail: "缺少触发动作或症状细节，AI 难以快速定位。"
+  correctIndex: 1,
+  success: "正确。你同时给出了程度和视觉约束，AI 更容易稳定执行。",
+  fail: "这个表达过于笼统或偏离目标，建议加入明确的视觉边界。"
+};
+
+export const backendQuestion: ChoiceQuestion = {
+  id: "backend-flow",
+  titleZh: "Backend 轨道：服务流程表达",
+  titleEn: "Backend Track: Service Flow",
+  promptZh: "哪句最能指导 AI 设计可扩展的订单处理流程？",
+  promptEn: "Which prompt best guides AI to build a scalable order-processing flow?",
+  options: [
+    "Make checkout logic better.",
+    "Build an async order workflow with queue-based workers and idempotent retry handling.",
+    "Add more backend code for orders."
+  ],
+  correctIndex: 1,
+  success: "很好。你明确了流程结构、执行机制和稳定性约束。",
+  fail: "建议补充流程机制与可靠性约束，而不仅是目标描述。"
 };
 
 export const styleQuestion: ChoiceQuestion = {
   id: "style-vocab",
-  titleZh: "模块四：风格术语掌握",
-  titleEn: "Module 4: Style Vocabulary",
-  promptZh: "卡片半透明、柔和阴影、背景模糊，最匹配哪种风格？",
-  promptEn: "A card is translucent with blur and soft depth. Which style is it?",
-  options: ["Brutalism", "Glassmorphism", "Retro"],
+  titleZh: "API 轨道：契约表达",
+  titleEn: "API Track: Contract Language",
+  promptZh: "哪个术语最能表达“接口返回稳定、字段可预测”的设计目标？",
+  promptEn: "Which term best captures stable and predictable API responses?",
+  options: ["Loose payloads", "Contract-first schema", "Visual polish"],
   correctIndex: 1,
-  success: "答对了。Glassmorphism 能让 AI 直接命中视觉语义。",
-  fail: "这个术语和视觉特征不匹配，建议优先记住 Glassmorphism。"
+  success: "答对了。Contract-first schema 能显著提升跨团队协作效率。",
+  fail: "建议使用可验证的接口术语来减少集成歧义。"
 };
 
 export const sentenceBlocks = {
   scrambled: [
-    "the navbar",
-    "to the top",
-    "Add",
-    "a glassmorphism effect",
-    "fix",
-    "it",
+    "the service",
+    "for read-heavy endpoints",
+    "Design",
     "and",
-    "of the page"
+    "cache-first",
+    "with indexed queries",
+    "a response strategy"
   ],
   answer: [
-    "Add",
-    "a glassmorphism effect",
-    "to the navbar",
+    "Design",
+    "a response strategy",
+    "for read-heavy endpoints",
     "and",
-    "fix",
-    "it",
-    "to the top",
-    "of the page"
+    "cache-first",
+    "the service",
+    "with indexed queries"
   ]
 };
 
 export const badges = [
-  { zh: "Bug终结者", en: "Bug Terminator", rule: "连续10次诊断正确" },
-  { zh: "细节控", en: "Precision Crafter", rule: "形容词选择准确率100%" },
-  { zh: "极简大师", en: "Minimal Master", rule: "风格模块满分" }
+  { zh: "架构指挥官", en: "Flow Architect", rule: "连续 10 次跨轨道任务达标" },
+  { zh: "性能优化师", en: "Latency Optimizer", rule: "性能类任务平均得分 90+" },
+  { zh: "契约大师", en: "Contract Master", rule: "API 轨道满分通过" }
 ];
