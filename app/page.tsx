@@ -1,45 +1,17 @@
 import Link from "next/link";
 import { UiPrecisionTeaser } from "@/components/InteractiveModules";
+import { getLessonFeed } from "@/services/contentService";
 
 const navItems = [
-  { href: "#tracks", label: "Tracks" },
   { href: "#how-it-works", label: "How It Works" },
   { href: "#ranking", label: "Ranking" },
   { href: "#faq", label: "FAQ" }
 ];
 
 const trustItems = [
-  "Cross-stack prompt fluency",
+  "Think in AI-native language",
   "Architecture-first coaching",
   "Built for AI product teams"
-];
-
-const tracks = [
-  {
-    en: "UI Creation",
-    zh: "界面创造",
-    desc: "Describe visual intent, hierarchy, and UX behavior with precise product language."
-  },
-  {
-    en: "Backend Logic & Services",
-    zh: "后端逻辑与服务",
-    desc: "Frame business rules, async workflows, and service boundaries for reliable execution."
-  },
-  {
-    en: "Database Modeling",
-    zh: "数据库建模",
-    desc: "Define schema intent, query strategy, and data consistency constraints clearly."
-  },
-  {
-    en: "API Design & Integration",
-    zh: "API 设计与集成",
-    desc: "Communicate contract-first APIs, payload semantics, and integration flow across systems."
-  },
-  {
-    en: "Networking & Performance",
-    zh: "网络与性能",
-    desc: "Guide latency, reliability, caching, and delivery optimization decisions with confidence."
-  }
 ];
 
 const rankTiers = ["Explorer", "Builder", "Architect", "Operator", "Principal"];
@@ -51,6 +23,8 @@ const leaderboardPreview = [
 ];
 
 export default function HomePage() {
+  const exercises = getLessonFeed();
+
   return (
     <div className="landing-shell">
       <div className="mx-auto max-w-6xl px-4 py-6 md:px-8 md:py-8">
@@ -72,36 +46,25 @@ export default function HomePage() {
           </nav>
         </header>
 
-        <section className="landing-section grid items-center gap-10 md:grid-cols-2">
+        <section className="landing-section">
           <div>
             <p className="landing-kicker">Vibe Coding for SaaS Teams</p>
             <h1 className="mt-3 text-4xl font-black leading-tight text-[#2f2f2f] md:text-6xl">
-              Turn architecture intent into production-quality AI output.
+              Think and express in AI-native language.
             </h1>
             <p className="mt-4 text-lg font-bold text-[#5f5f5f]">
-              Train your team to communicate goals, system flow, and constraints so AI can ship better software across the stack.
+              Train your team to express goals, architecture flow, and constraints in the language AI executes best.
             </p>
             <p className="mt-2 text-base font-bold text-[#7a7a7a]">
-              通过架构导向的训练，让 AI 更准确理解你的产品意图、系统流程和优化目标。
+              通过 AI 原生表达训练，让你的产品意图、系统流程和优化目标一次说清楚。
             </p>
             <div className="landing-cta-group mt-8">
               <Link href="/lesson" className="btn-primary-3d px-7 py-4 text-lg">
                 Start Free Lesson
               </Link>
-              <a href="#tracks" className="btn-ghost-3d px-7 py-4 text-lg">
-                Explore 5 Tracks
+              <a href="#how-it-works" className="btn-ghost-3d px-7 py-4 text-lg">
+                See How It Works
               </a>
-            </div>
-          </div>
-          <div className="rounded-3xl border-2 border-[#d8f3c4] bg-gradient-to-br from-[#f2ffeb] via-[#fcfff9] to-[#e8f6ff] p-8 shadow-sm">
-            <h2 className="text-xl font-black text-[#3c3c3c]">From prompt guesswork to system intent</h2>
-            <div className="mt-5 space-y-3">
-              <div className="rounded-2xl border-2 border-[#ffdede] bg-[#fff5f5] p-4 text-sm font-bold text-[#9f4f4f]">
-                "make this faster and cleaner"
-              </div>
-              <div className="rounded-2xl border-2 border-[#d5f4bf] bg-[#f2ffeb] p-4 text-sm font-bold text-[#3d7d14]">
-                "Design a cache-first API flow with async job workers and indexed query paths for p95 under 200ms."
-              </div>
             </div>
           </div>
         </section>
@@ -118,7 +81,7 @@ export default function HomePage() {
 
         <section className="landing-section">
           <h2 className="section-title">Why product teams use VibeCoLingo</h2>
-          <p className="section-subtitle">Build clear technical language that improves quality, speed, and cross-team alignment.</p>
+          <p className="section-subtitle">Build AI-native communication habits that improve quality, speed, and cross-team alignment.</p>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {[
               {
@@ -146,27 +109,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="tracks" className="landing-section">
-          <h2 className="section-title">Five Professional Tracks</h2>
-          <p className="section-subtitle">Train full-stack intent expression from UI surface to network behavior.</p>
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
-            {tracks.map((item) => (
-              <div key={item.en} className="landing-step-card">
-                <h3 className="text-xl font-black text-[#333]">{item.en}</h3>
-                <p className="mt-1 text-sm font-black text-duo-blue">{item.zh}</p>
-                <p className="mt-3 text-sm font-bold text-[#666]">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
         <section id="how-it-works" className="landing-section">
           <h2 className="section-title">How It Works</h2>
           <p className="section-subtitle">Vibe Coding loop: intent to architecture prompt to execution refinement.</p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {[
               { step: "01", en: "Intent", zh: "意图", desc: "Define product objective, user impact, and success metric." },
-              { step: "02", en: "Architect", zh: "架构", desc: "Translate goals into system-level prompts across tracks." },
+              { step: "02", en: "Architect", zh: "架构", desc: "Translate goals into system-level prompts with clear constraints." },
               { step: "03", en: "Execute", zh: "执行", desc: "Evaluate output quality and optimize with targeted constraints." }
             ].map((item) => (
               <div key={item.step} className="landing-step-card">
@@ -181,10 +130,10 @@ export default function HomePage() {
 
         <section id="teaser" className="landing-section">
           <div className="mb-6 text-center">
-            <h2 className="section-title">Try a Cross-Track Scenario</h2>
-            <p className="section-subtitle">Start with a UI prompt, then extend to backend, DB, API, and network optimization in full lessons.</p>
+            <h2 className="section-title">Try a Real Product Scenario</h2>
+            <p className="section-subtitle">Low-effort drills: tap to choose, tap to reorder, and fill blanks with instant feedback for AI-native expression.</p>
           </div>
-          <UiPrecisionTeaser />
+          <UiPrecisionTeaser exercises={exercises} />
           <div className="mt-8 text-center">
             <Link href="/lesson" className="btn-primary-3d px-7 py-4 text-lg">
               Continue to Full Track Lesson
@@ -215,7 +164,7 @@ export default function HomePage() {
             <div className="card-white p-6">
               <h3 className="text-lg font-black text-[#333]">Profile Signals</h3>
               <ul className="mt-4 space-y-2 text-sm font-bold text-[#666]">
-                <li>Track radar: UI / Backend / DB / API / Networking</li>
+                <li>Skill radar across core product capabilities</li>
                 <li>Global percentile and streak trend</li>
                 <li>Weekly progression toward next tier</li>
               </ul>
@@ -254,8 +203,8 @@ export default function HomePage() {
             {[
               {
                 q: "Is this only for frontend developers?",
-                a: "No. The platform trains AI communication across UI, Backend, DB, API, and Networking tracks.",
-                zh: "不是。平台覆盖 UI、后端、数据库、API 与网络五大方向。"
+                a: "No. The platform is built for product teams working across modern software delivery workflows.",
+                zh: "不是。平台面向在现代软件交付流程中协作的产品与工程团队。"
               },
               {
                 q: "Do I need advanced English grammar?",
@@ -264,8 +213,8 @@ export default function HomePage() {
               },
               {
                 q: "How is rank calculated?",
-                a: "Your global score combines accuracy, complexity, speed, and consistency across all five tracks.",
-                zh: "总分由五个方向的正确率、复杂度、速度和稳定性综合计算。"
+                a: "Your global score combines accuracy, complexity, speed, and consistency across learning scenarios.",
+                zh: "总分由不同学习场景下的正确率、复杂度、速度和稳定性综合计算。"
               }
             ].map((item) => (
               <div key={item.q} className="card-white p-6">
@@ -279,9 +228,9 @@ export default function HomePage() {
 
         <section className="landing-section pb-12">
           <div className="rounded-3xl border-2 border-b-8 border-duo-green bg-[#f2ffeb] p-8 text-center md:p-12">
-            <h2 className="text-3xl font-black text-[#2f2f2f] md:text-4xl">Train the language behind high-quality software delivery.</h2>
+            <h2 className="text-3xl font-black text-[#2f2f2f] md:text-4xl">Think in AI-native language. Ship with less friction.</h2>
             <p className="mx-auto mt-4 max-w-2xl text-base font-bold text-[#5f5f5f]">
-              Build professional AI communication habits and level up your cross-stack execution.
+              Build professional AI communication habits and turn architecture intent into shippable outcomes.
             </p>
             <div className="mt-8">
               <Link href="/lesson" className="btn-primary-3d px-8 py-4 text-lg">

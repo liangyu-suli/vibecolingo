@@ -79,3 +79,26 @@ VibeCoLingo 是一款面向 AI 时代软件团队的交互式训练平台，通�
 
 一句话总结
 VibeCoLingo 不只是教你怎么说英语，而是训练你用专业、可执行、跨栈一致的语言去“指挥 AI 构建产品”。
+
+Web 实现说明（当前阶段）
+- 交互渲染与内容数据完全分离：
+  - UI 仅负责渲染 `ExerciseRenderer`（choice / reorder / fill_blank）
+  - 题目内容、答案、反馈、轨道信息全部由内容层提供
+- 内容源采用 Headless CMS 工作流（本阶段以本地 CMS feed 结构模拟）：
+  - AI 生成草稿 -> 人工审核 -> 发布
+  - 仅发布内容进入学习流
+- 运行时校验：
+  - 在内容进入 UI 前执行 schema 校验，非法条目会被过滤
+- 移动端优先：
+  - 以 375px 为基线，单手点击操作优先（大触达区、低输入负担）
+
+当前页面路由（Web First）
+- `/`：Landing
+- `/lesson`：通用课程流（顺序练习）
+- `/practice/[track]`：单轨道强化练习
+- `/profile`：匿名档案（等级、分数、分轨道能力）
+
+评分落地（匿名会话）
+- 按 `ScoreEvent` 实时计算并更新会话档案：
+  - `score = accuracy x complexity_weight x speed_factor x consistency_bonus`
+- 排名与百分位为会话级可视化（非全局持久榜单）

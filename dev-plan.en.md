@@ -58,3 +58,19 @@
 - Phase 1 is frontend narrative and spec alignment only.
 - No auth, persistence, backend scoring engine, or live leaderboard in this phase.
 - Existing visual language is refined rather than replaced with a full rebrand.
+
+## 8. Web-First Implementation Status (Mobile-First)
+- UI/data separation implemented:
+  - Generic `ExerciseRenderer` drives `choice`, `reorder`, `fill_blank`.
+  - Exercise copy/answers/metadata moved into typed content payloads.
+- Domain contracts introduced:
+  - `Track`, `ExerciseType`, `Exercise`, `ScoreEvent`, `UserRankProfile`, `LeaderboardEntry`.
+- Runtime validation introduced:
+  - Content feed is validated before entering UI rendering.
+- CMS workflow behavior defined in code path:
+  - Feed sync service emulates headless CMS ingest and normalization.
+  - Intended authoring flow: AI draft -> human approval -> publish.
+- Mobile-first app routes implemented:
+  - `/lesson`, `/practice/[track]`, `/profile`.
+- Anonymous session rank profile:
+  - Local session scoring + tier/percentile progression.
